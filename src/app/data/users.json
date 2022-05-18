@@ -1,0 +1,23 @@
+[
+  {
+    "id": 0,
+    "name": "Anna",
+    "surname": "Wiórka",
+    "email": "anna.wiorka@gmail.com",
+    "password": "cGFzc3dvcmQx"
+  },
+  {
+    "id": 1,
+    "name": "Filip",
+    "surname": "Kazia",
+    "email": "filip.kazia@gmail.com",
+    "password": "cGFzc3dvcmQy"
+  },
+  {
+    "id": 2,
+    "name": "Michał",
+    "surname": "Radzimierz",
+    "email": "michal.radzi@gmail.com",
+    "password": "cGFzc3dvcmQz"
+  }
+]
