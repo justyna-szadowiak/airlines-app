@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "airlines-angular": {
+      "hosting": {
+        "airlines-angular": [
+          "airlines-angular"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "airlines-angular"
+  }
+}
