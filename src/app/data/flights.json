@@ -1,0 +1,26 @@
+[
+  {
+    "placeOfDeparture": "Kraków",
+    "destionation": "Paryż"
+  },
+  {
+    "placeOfDeparture": "Kraków",
+    "destionation": "Londyn"
+  },
+  {
+    "placeOfDeparture": "Kraków",
+    "destionation": "Malta"
+  },
+  {
+    "placeOfDeparture": "Warszawa",
+    "destionation": "Milan"
+  },
+  {
+    "placeOfDeparture": "Warszawa",
+    "destionation": "Rodos"
+  },
+  {
+    "placeOfDeparture": "Wrocław",
+    "destionation": "Los Angeles"
+  }
+]
