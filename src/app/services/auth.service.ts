@@ -66,14 +66,14 @@ export class AuthService {
     return user !== null && user.emailVerified !== false ? true : false;
   }
 
-  GoogleAuth(){
-    return this.AuthLogin(new auth.GoogleAuthProvider())
-      .then((res: any) => {
-        if(res) {
-          this.router.navigate(['book-flight']);
-        }
-      });
-  }
+  // GoogleAuth(){
+  //   return this.AuthLogin(new auth.GoogleAuthProvider())
+  //     .then((res: any) => {
+  //       if(res) {
+  //         this.router.navigate(['book-flight']);
+  //       }
+  //     });
+  // }
 
   AuthLogin(provider: any) {
     return this.afAuth
