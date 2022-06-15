@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,7 +13,8 @@ import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
@@ -27,10 +30,8 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { BookFlightComponent } from './book-flight/book-flight.component';
 import { AuthService } from './services/auth.service';
 import { CheckFlightComponent } from './check-flight/check-flight.component';
-import { BaggageComponent } from './baggage/baggage.component';
-import { FAQComponent } from './faq/faq.component';
-import { RulesAndRegulationsComponent } from './rules-and-regulations/rules-and-regulations.component';
 import { SupportCenterComponent } from './support-center/support-center.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
@@ -41,10 +42,9 @@ import { SupportCenterComponent } from './support-center/support-center.componen
     FooterComponent,
     BookFlightComponent,
     CheckFlightComponent,
-    BaggageComponent,
-    FAQComponent,
-    RulesAndRegulationsComponent,
-    SupportCenterComponent
+    SupportCenterComponent,
+    MainComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -59,9 +59,13 @@ import { SupportCenterComponent } from './support-center/support-center.componen
     provideMessaging(() => getMessaging()),
     providePerformance(() => getPerformance()),
     provideRemoteConfig(() => getRemoteConfig()),
-    provideStorage(() => getStorage(),
+    provideStorage(() => getStorage()),
     MatDatepickerModule,
     MatFormFieldModule,
+    MatAutocompleteModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [
     ScreenTrackingService, UserTrackingService, AuthService
