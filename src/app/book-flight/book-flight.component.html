@@ -1,1 +1,36 @@
-<p>book-flight works!</p>
+<!-- <pre>{{flights$ | async | json}}</pre> -->
+<form class="form">
+  <table class="full-width" cellspacing="0" *ngFor="let start of (flights$ | async)">
+    <td><mat-form-field class="full-width" appearance="fill">
+      <input type="text"
+            placeholder="Wybierz miasto wylotu"
+            aria-label="Skąd?"
+            matInput
+            [formControl]="flightControl"
+            [matAutocomplete]="auto"
+            >
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option [value]="start">
+          {{start.placeOfDeparture}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field></td>
+    <td><mat-form-field class="full-width" appearance="fill">
+      <input type="text"
+            placeholder="Wybierz miasto przylotu"
+            aria-label="Dokąd?"
+            matInput
+            [formControl]="flightControl"
+            [matAutocomplete]="auto"
+            >
+      <mat-autocomplete #auto="matAutocomplete">
+        <!-- <mat-option [value]="land">
+          {{}}
+        </mat-option> -->
+      </mat-autocomplete>
+    </mat-form-field></td>
+    <!-- <mat-form-field class="full-width" appearance="fill">
+
+    </mat-form-field> -->
+  </table>
+</form>
