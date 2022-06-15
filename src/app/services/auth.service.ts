@@ -8,7 +8,7 @@ import { AngularFirestore, AngularFirestoreDocument} from '@angular/fire/compat/
   providedIn: 'root',
 })
 export class AuthService {
-  userData: any;
+  public userData: any;
   constructor(
     private afs: AngularFirestore,
     private afAuth: AngularFireAuth,
@@ -27,7 +27,7 @@ export class AuthService {
     });
   }
 
-  SignIn(email: string, password: string) {
+  public SignIn(email: string, password: string) {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
@@ -41,11 +41,11 @@ export class AuthService {
       });
   }
 
-  Register(email: string, password: string) {
+  public Register(email: string, password: string) {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
-        this.SendVerificationMail();
+        // this.SendVerificationMail();
         this.SetUserData(result.user);
       })
       .catch((error) => {
@@ -53,13 +53,13 @@ export class AuthService {
       });
   }
 
-  SendVerificationMail(){
-    return this.afAuth.currentUser
-      .then((u: any) => u.sendVerification())
-      .then(() => {
-        this.router.navigate(['verify-email-address']);
-      });
-  }
+  // public SendVerificationMail(){
+  //   return this.afAuth.currentUser
+  //     .then((u: any) => u.sendVerification())
+  //     .then(() => {
+  //       this.router.navigate(['verify-email-address']);
+  //     });
+  // }
 
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
@@ -75,7 +75,7 @@ export class AuthService {
   //     });
   // }
 
-  AuthLogin(provider: any) {
+  public AuthLogin(provider: any) {
     return this.afAuth
       .signInWithPopup(provider)
       .then((result) => {
@@ -89,7 +89,7 @@ export class AuthService {
       });
   }
 
-  SetUserData(user: any) {
+  public SetUserData(user: any) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
       `user/${user.id}`
     );
@@ -100,15 +100,19 @@ export class AuthService {
       email: user.email,
       password: user.password,
     };
-    return userRef.set(userData, {
+    return userRef
+      .set(userData, {
       merge: true,
-    });
+      })
+      .catch(error => {
+        return error
+      });
   }
 
-  SignOut() {
+  public SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['']);
+      this.router.navigate(['/log-in']);
     });
   }
 }
