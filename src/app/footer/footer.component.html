@@ -1,5 +1,144 @@
-<div>
-  <button mat-button routerLink="/support/baggage" routerLinkActive="active-link" class="link">Bagaż</button>
-  <button mat-button routerLink="/support/faq" routerLinkActive="active-link" class="link">FAQ</button>
-  <button mat-button routerLink="/support/rules-and-regulation" routerLinkActive="active-link" class="link">Zasady i przepisy</button>
+<div class="footer-accordion">
+
+  <mat-accordion class="headers-align">
+    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          FAQ
+        </mat-panel-title>
+        <mat-panel-description>
+          How can we help you?
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-panel-subtitle>What should I do if my baggage were lost?</mat-panel-subtitle>
+        <p>Firstly, we would like to apologise that your bags did not arrive at the destination.
+            We will do our best to solve the problem as soon as possible.
+            Before leaving the arrivals hall at the airport you arrived at, you must obtain a
+            Baggage Irregularity Report (P.I.R.) for your missing baggage.
+        </p>
+        <mat-divider></mat-divider>
+        <mat-subtitle>Can I travel with my pet?</mat-subtitle>
+        <p>Angular Airlines only allows cats and dogs to be transported as pets.
+            For detailed information, please contact with us via email or phone we are ready and pleased to help you.
+        </p>
+        <mat-divider></mat-divider>
+        <mat-subtitle>Can I change or cancel my flight?</mat-subtitle>
+          <p>The seat you have purchased can be changed or cancelled.
+            For that please contact with us via email.
+        </p>
+        <mat-divider></mat-divider>
+        <mat-subtitle>I'm traveling with my family/ friends. Can we have seats next to each other?</mat-subtitle>
+        <p>During online check-in, the system automatically assigns a seat for you without price and based on
+            availability. In order to fly in the seat of your choice, you should choose "seat selection” and
+            continue the online check-In process.
+        </p>
+
+      <mat-action-row>
+        <button mat-button color="primary" (click)="nextStep()">Next</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Contact
+        </mat-panel-title>
+        <mat-panel-description>
+          You can check this page you you find some difficulties with booking your dream journey.
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div>
+        <mat-subtitle>We are here to help you at every moment of your journey.</mat-subtitle>
+          <p>We are very happy you choose flying with us, we believe that you should feel
+            in safe hands and that you don’t expect any surprises down the road.
+          </p>
+          <p>
+            For your peace of mind and assurance, we aim to provide you with all the answers
+            you may need about your flight, and we communicate these through different ways.
+          </p>
+          <p>Email: angular.airlines@gmail.com
+            Phone: +48 111 222 333
+          </p>
+      </div>
+
+      <mat-action-row>
+        <button mat-button color="warn" (click)="prevStep()">Previous</button>
+        <button mat-button color="primary" (click)="nextStep()">Next</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Rules and regulations
+        </mat-panel-title>
+        <mat-panel-description>
+          You can find down here all detailed informations.
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div>
+        <mat-subtitle>Rules For Tickets And Reservations</mat-subtitle>
+        <p>Angular Airlaines takes care of the air transportation of the person,
+            whose name is mentioned on the transportation ticket (plane ticket, or
+            any other in copy issued transportation ticket). The transportation ticket
+            (plane ticket) is not transferable to third persons. When travelling without
+            an electronic ticket, it is necessary that you can show a valid plane ticket
+            issued in your name at any stage during the journey. When travelling with an
+            e-ticket, you have the right of transportation if the e-ticket is issued in
+            your name and if you can show a valid identification at any stage during the journey.
+        </p>
+        <p>A booked reservation is not transferable to another person and cannot be issued in
+            another’s name. Changes in the travel route, travel date and time are only possible
+            if the rules allow this. If on the request of a traveller changes are made in the travel
+            date or travel route, resulting in a price difference, then the traveller will be charged
+            for this difference in price. After the departure of a scheduled flight it is not possible
+            to change a reservation, to cancel a ticket, or to restitute payment.
+        </p>
+        <mat-divider></mat-divider>
+        <mat-subtitle>Required documents for your journey</mat-subtitle>
+        <p>It is the responsibility of our guests to have the required travel documents for the entire trip.
+            If, in accordance with statutory requirements, at control for admission to the flight, the required
+            travel documents are incomplete, (damaged/worn/broken, missing page, outdated, etc.) the passenger
+            will be refused on the flight, despite the fact that a ticket for the relevant flight has been issued
+            in his name and/or the check-in procedure has been completed.
+        </p>
+      </div>
+
+      <mat-action-row>
+        <button mat-button color="warn" (click)="prevStep()">Previous</button>
+        <button mat-button color="primary" (click)="nextStep()">Next</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Baggage
+        </mat-panel-title>
+        <mat-panel-description>
+          You can check this page before you travel to find all the information you may need about baggage.
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div>
+        <p>Each passenger over the age of two may only carry one carry-on bag (cabin baggage) at a time
+          (Eco, Flex, Premium). The hand luggage must not weigh more than 8 kg and must not exceed the
+          dimensions 55x40x25cm. (In the PROMO ticket type, only handbags/personal items (max. 40x30x15 dimensions
+          and can be placed under the seat) are free of charge.
+        </p>
+        <p>
+          Due to Covid 19 measures on our flights: cabin baggage is limited to 1 piece of hand luggage
+          (max.55x40x25 cm) and 1 piece of personal equipment (small hand bag /baby bag, briefcases or laptop)
+          (max.40x30x15 cm). Items such as musical instruments, camera, jewellery and diplomatic courier files
+          will be accepted in the cabin.
+        </p>
+      </div>
+
+      <mat-action-row>
+        <button mat-button color="warn" (click)="prevStep()">Previous</button>
+        <button mat-button color="primary" (click)="nextStep()">End</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+
+  </mat-accordion>
+
 </div>
