@@ -12,9 +12,21 @@ import { LogInComponent } from './log-in/log-in.component';
 import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatListModule } from '@angular/material/list';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatLineModule } from '@angular/material/core';
 
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
@@ -29,9 +41,12 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { BookFlightComponent } from './book-flight/book-flight.component';
 import { AuthService } from './services/auth.service';
-import { CheckFlightComponent } from './check-flight/check-flight.component';
-import { SupportCenterComponent } from './support-center/support-center.component';
 import { MainComponent } from './main/main.component';
+import { FlightListComponent } from './flight-list/flight-list.component';
+import { FlightDetailsComponent } from './flight-details/flight-details.component';
+import { SummaryComponent } from './summary/summary.component';
+import { FlightComponent } from './flight/flight.component';
+import { SearchFlightComponent } from './search-flight/search-flight.component';
 
 @NgModule({
   declarations: [
@@ -41,9 +56,12 @@ import { MainComponent } from './main/main.component';
     LogInComponent,
     FooterComponent,
     BookFlightComponent,
-    CheckFlightComponent,
-    SupportCenterComponent,
     MainComponent,
+    FlightListComponent,
+    FlightDetailsComponent,
+    SummaryComponent,
+    FlightComponent,
+    SearchFlightComponent,
 
   ],
   imports: [
@@ -61,8 +79,20 @@ import { MainComponent } from './main/main.component';
     provideRemoteConfig(() => getRemoteConfig()),
     provideStorage(() => getStorage()),
     MatDatepickerModule,
+    MatNativeDateModule,
     MatFormFieldModule,
     MatAutocompleteModule,
+    MatExpansionModule,
+    MatDividerModule,
+    MatIconModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatDialogModule,
+    MatInputModule,
+    MatListModule,
+    MatLineModule,
     FormsModule,
     ReactiveFormsModule,
     CommonModule
