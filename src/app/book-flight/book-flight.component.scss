@@ -1,0 +1,40 @@
+.form {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.submit {
+  position: relative;
+  float: right;
+}
+
+.countingPassagers {
+  overflow: scroll;
+}
+
+.section {
+  display: table;
+}
+
+.label {
+  display: table-cell;
+  font-size: 14px;
+  margin-left: 8px;
+  min-width: 120px;
+}
+
+.button-row {
+  display: table-cell;
+  width: 490px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.mat-form-field {
+  padding: 5px;
+}
