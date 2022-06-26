@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Kraków"
+  },
+  {
+    "id": 2,
+    "name": "Paryż"
+  },
+  {
+    "id": 3,
+    "name": "Londyn"
+  },
+  {
+    "id": 4,
+    "name": "Malta"
+  },
+  {
+    "id": 5,
+    "name": "Warszawa"
+  },
+  {
+    "id": 6,
+    "name": "Milan"
+  },
+  {
+    "id": 7,
+    "name": "Tokio"
+  },
+  {
+    "id": 8,
+    "name": "Wrocław"
+  },
+  {
+    "id": 9,
+    "name": "Los Angeles"
+  }
+]

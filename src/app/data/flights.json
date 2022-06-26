@@ -1,32 +1,44 @@
 [
   {
-    "id": 1,
-    "placeOfDeparture": "Kraków",
-    "destionation": "Paryż"
+    "flightId": 1,
+    "departureCity": 1,
+    "destionationCity": 2,
+    "possibleDate": "28 August 2022",
+    "price": 389.70
   },
   {
-    "id": 2,
-    "placeOfDeparture": "Kraków",
-    "destionation": "Londyn"
+    "flightId": 2,
+    "departureCity": 1,
+    "destionationCity": 3,
+    "possibleDate": "29 July 2022",
+    "price": 197.00
   },
   {
-    "id": 3,
-    "placeOfDeparture": "Kraków",
-    "destionation": "Malta"
+    "flightId": 3,
+    "departureCity": 1,
+    "destionationCity": 4,
+    "possibleDate": "01 July 2022",
+    "price": 558.00
   },
   {
-    "id": 4,
-    "placeOfDeparture": "Warszawa",
-    "destionation": "Milan"
+    "flightId": 4,
+    "departureCity": 5,
+    "destionationCity": 6,
+    "possibleDate": "19 August 2022",
+    "price": 115.80
   },
   {
-    "id": 5,
-    "placeOfDeparture": "Warszawa",
-    "destionation": "Tokio"
+    "flightId": 5,
+    "departureCity": 5,
+    "destionationCity": 7,
+    "possibleDate": "20 July 2022",
+    "price": 1125.85
   },
   {
-    "id": 6,
-    "placeOfDeparture": "Wrocław",
-    "destionation": "Los Angeles"
+    "flightId": 6,
+    "departureCity": 8,
+    "destionationCity": 9,
+    "possibleDate": "20 August 2022",
+    "price": 2400.59
   }
 ]
