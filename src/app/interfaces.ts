@@ -11,8 +11,41 @@ export interface AuthUser {
   email: string;
 }
 
+export interface City {
+  id: number;
+  name: string;
+}
+
 export interface Flight {
   id: number;
-  placeOfDeparture: string;
-  destionation: string;
+  departureAirportId: number;
+  destinationAirportId: number;
+  possibleDate: string;
+  price: number;
+}
+
+export interface Filter {
+  departureAirportId: number;
+  destinationAirportId: number;
+  date: number;
+}
+
+export interface FormFilter extends Filter {
+  adultsPassagers: number;
+  childrenPassagers: number;
+}
+
+export interface Airport {
+  id: number;
+  airport: string;
+}
+
+export interface Date {
+  possibleDate: string;
+}
+
+export interface Seat {
+  totalRows: number;
+  seatsPerRow: number;
+  seatNaming: string;
 }
