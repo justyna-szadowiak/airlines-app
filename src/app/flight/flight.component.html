@@ -1,1 +1,12 @@
-<p>flight works!</p>
+<div>
+  <mat-stepper orientation="vertical">
+    <mat-step>
+      <ng-template matStepLabel>Flight details:</ng-template>
+        <app-flight-details></app-flight-details>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Flight summary:</ng-template>
+      <app-summary></app-summary>
+    </mat-step>
+  </mat-stepper>
+</div>

@@ -1,1 +1,23 @@
-<p>flight-details works!</p>
+<mat-list>
+  <mat-list-item >
+    <div mat-line>From: </div>
+    <div mat-line>To: </div>
+    <div mat-line>Flight date:</div>
+    <div mat-line>Number of passagers:</div>
+    <section class="section">
+      <label class="margin">Choose baggage:</label>
+      <mat-radio-group [(ngModel)]="typesOfBaggage">
+        <mat-radio-button class="margin" value="carry-on">Carry-on luggage</mat-radio-button>
+        <mat-radio-button class="margin" value="checked">Checked luggage</mat-radio-button>
+      </mat-radio-group>
+    </section>
+  </mat-list-item>
+</mat-list>
+<mat-divider></mat-divider>
+<mat-card>
+  <mat-card-content>
+    <mat-subtitle>Choose your seats</mat-subtitle>
+    <mat-checkbox [seatsLayout]="seats"></mat-checkbox>
+  </mat-card-content>
+</mat-card>
+
