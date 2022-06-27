@@ -3,19 +3,19 @@
     <div class="full-width form-group">
       <mat-form-field appearance="fill">
         <mat-label color="basic">Choose your departure city:</mat-label>
-        <mat-select formControlName="departureAirport" (selectionChange)="onDepartureSelect($event)" *ngIf="(departureAirports$ | async) as departureAirports" required>
-          <mat-option *ngFor="let departureAirport of departureAirports" value="option">{{departureAirport.airport}}</mat-option>
+        <mat-select formControlName="departureAirport" (selectionChange)="onDepartureSelect()" *ngIf="(departureAirports$ | async) as departureAirports" required>
+          <mat-option *ngFor="let airport of departureAirports" [value]="airport.id">{{airport.airport}}</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label color="basic">Choose your destination city:</mat-label>
-        <mat-select formControlName="destinationAirport" *ngIf="(destinationAirports$ | async) as destinationAirports" required>
-          <mat-option *ngFor="let destinationAirport of destinationAirports" value="option">{{destinationAirport.airport}}</mat-option>
+        <mat-select formControlName="destinationAirport" (selectionChange)="onDestinationSelect()" *ngIf="(destinationAirports$ | async) as destinationAirports" required>
+          <mat-option *ngFor="let airport of destinationAirports" [value]="airport.id">{{airport.airport}}</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Pick a leave date:</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="date">
+        <input matInput [matDatepicker]="picker" [matDatepickerFilter]="dateFilter" formControlName="date" (dateChange)="onDateChange()">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
@@ -32,6 +32,4 @@
       </div>
     </div>
   </form>
-
 </div>
-

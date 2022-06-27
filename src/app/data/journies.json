@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "departureAirportId": 1,
+    "destinationAirportId": 10,
+    "possibleDates": [
+      1656453600000
+    ]
+  },
+  {
+    "id": 2,
+    "departureAirportId": 1,
+    "destinationAirportId": 11,
+    "possibleDates": []
+  },
+  {
+    "id": 3,
+    "departureAirportId": 1,
+    "destinationAirportId": 12,
+    "possibleDates": []
+  },
+  {
+    "id": 4,
+    "departureAirportId": 2,
+    "destinationAirportId": 13,
+    "possibleDates": []
+  },
+  {
+    "id": 5,
+    "departureAirportId": 2,
+    "destinationAirportId": 14,
+    "possibleDates": []
+  },
+  {
+    "id": 6,
+    "departureAirportId": 2,
+    "destinationAirportId": 10,
+    "possibleDates": []
+  },
+  {
+    "id": 7,
+    "departureAirportId": 3,
+    "destinationAirportId": 15,
+    "possibleDates": []
+  },
+  {
+    "id": 8,
+    "departureAirportId": 3,
+    "destinationAirportId": 11,
+    "possibleDates": []
+  },
+  {
+    "id": 9,
+    "departureAirportId": 3,
+    "destinationAirportId": 14,
+    "possibleDates": []
+  }
+]

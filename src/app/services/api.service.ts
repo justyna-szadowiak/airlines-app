@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.prod';
 import { Observable, of } from 'rxjs';
-import { Flight, City, Airport, Date } from '../interfaces';
+import { Journey, City, Airport } from '../interfaces';
 import cities from '../data/cities.json';
-import flights from '../data/flights.json';
+import journies from '../data/journies.json';
 import airports from '../data/airports.json';
 import departureAirports from '../data/departureAirports.json';
 import destinationAirports from '../data/destinationAirports.json';
@@ -18,8 +18,8 @@ export class ApiService {
 
   constructor() { }
 
-  getAllFligths(): Observable<Flight[]> {
-    return of(flights)
+  getJournies(): Observable<Journey[]> {
+    return of(journies)
   }
 
   getCities(): Observable<City[]> {
@@ -30,20 +30,18 @@ export class ApiService {
     return of(departureAirports)
   }
 
-  getDestinationAirports(): Observable<Airport[]> {
-    return of(destinationAirports);
-  }
-
   getDestinations(departureAirportId: number): Observable<Airport[]> {
-    const destinationAirportIds: number[] = flights.filter(flight => flight.departureAirportId === departureAirportId)
-      .map(flight => flight.destinationAirportId);
-
+    const destinationAirportIds: number[] = journies.filter(journey => journey.departureAirportId === departureAirportId)
+      .map(journey => journey.destinationAirportId);
     const destinations: Airport[] = airports.filter(airport => destinationAirportIds.indexOf(airport.id) != -1)
 
     return of(destinations);
   }
 
-  getPossibleDates(): Observable<Date[]> {
-    return of(possibleDates)
+  getJourney(departureAirportId: number, destinationAirportId: number): Observable<Journey> {
+    return of(journies.find(journey =>
+      journey.departureAirportId === departureAirportId
+      && journey.destinationAirportId === destinationAirportId
+    ) as Journey)
   }
 }

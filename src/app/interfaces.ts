@@ -16,11 +16,16 @@ export interface City {
   name: string;
 }
 
-export interface Flight {
+export interface Journey {
   id: number;
   departureAirportId: number;
   destinationAirportId: number;
-  possibleDate: string;
+  possibleDates: number[];
+}
+
+export interface Flight {
+  id: number;
+  journeyId: number;
   price: number;
 }
 
@@ -38,10 +43,6 @@ export interface FormFilter extends Filter {
 export interface Airport {
   id: number;
   airport: string;
-}
-
-export interface Date {
-  possibleDate: string;
 }
 
 export interface Seat {

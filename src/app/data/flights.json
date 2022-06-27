@@ -1,65 +1,47 @@
 [
   {
-    "id": 1,
-    "departureAirportId": 1,
-    "destinationAirportId": 10,
-    "possibleDate": "28 August 2022",
+    "id": 10,
+    "journeyId": 1,
     "price": 389.70
   },
   {
-    "id": 2,
-    "departureAirportId": 1,
-    "destinationAirportId": 11,
-    "possibleDate": "29 July 2022",
+    "id": 20,
+    "journeyId": 2,
     "price": 197.00
   },
   {
-    "id": 3,
-    "departureAirportId": 1,
-    "destinationAirportId": 12,
-    "possibleDate": "01 July 2022",
+    "id": 30,
+    "journeyId": 3,
     "price": 558.00
   },
   {
-    "id": 4,
-    "departureAirportId": 2,
-    "destinationAirportId": 13,
-    "possibleDate": "19 August 2022",
+    "id": 40,
+    "journeyId": 4,
     "price": 115.80
   },
   {
-    "id": 5,
-    "departureAirportId": 2,
-    "destinationAirportId": 14,
-    "possibleDate": "20 July 2022",
+    "id": 50,
+    "journeyId": 5,
     "price": 1125.85
   },
   {
-    "id": 6,
-    "departureAirportId": 2,
-    "destinationAirportId": 10,
-    "possibleDate": "14 September 2022",
+    "id": 60,
+    "journeyId": 6,
     "price": 538.99
   },
   {
-    "id": 7,
-    "departureAirportId": 3,
-    "destinationAirportId": 15,
-    "possibleDate": "20 August 2022",
+    "id": 70,
+    "journeyId": 7,
     "price": 2400.59
   },
   {
-    "id": 8,
-    "departureAirportId": 3,
-    "destinationAirportId": 11,
-    "possibleDate": "05 July 2022",
+    "id": 80,
+    "journeyId": 8,
     "price": 435.59
   },
   {
-    "id": 9,
-    "departureAirportId": 3,
-    "destinationAirportId": 14,
-    "possibleDate": "20 August 2022",
+    "id": 90,
+    "journeyId": 9,
     "price": 1128.89
   }
 ]
