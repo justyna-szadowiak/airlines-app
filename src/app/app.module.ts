@@ -27,6 +27,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatLineModule } from '@angular/material/core';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from '@angular/material/radio';
 
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
@@ -39,7 +42,6 @@ import { providePerformance,getPerformance } from '@angular/fire/performance';
 import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { BookFlightComponent } from './book-flight/book-flight.component';
 import { AuthService } from './services/auth.service';
 import { MainComponent } from './main/main.component';
 import { FlightListComponent } from './flight-list/flight-list.component';
@@ -55,14 +57,12 @@ import { SearchFlightComponent } from './search-flight/search-flight.component';
     NotFoundComponent,
     LogInComponent,
     FooterComponent,
-    BookFlightComponent,
     MainComponent,
     FlightListComponent,
     FlightDetailsComponent,
     SummaryComponent,
     FlightComponent,
-    SearchFlightComponent,
-
+    SearchFlightComponent
   ],
   imports: [
     BrowserModule,
@@ -93,6 +93,9 @@ import { SearchFlightComponent } from './search-flight/search-flight.component';
     MatInputModule,
     MatListModule,
     MatLineModule,
+    MatStepperModule,
+    MatCheckboxModule,
+    MatRadioModule,
     FormsModule,
     ReactiveFormsModule,
     CommonModule
