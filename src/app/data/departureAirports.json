@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "airport": "Kraków"
+  },
+  {
+    "id": 2,
+    "airport": "Warszawa"
+  },
+  {
+    "id": 3,
+    "airport": "Wrocław"
+  }
+]

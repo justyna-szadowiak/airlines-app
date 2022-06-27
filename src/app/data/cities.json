@@ -4,35 +4,35 @@
     "name": "Kraków"
   },
   {
-    "id": 2,
+    "id": 10,
     "name": "Paryż"
   },
   {
-    "id": 3,
+    "id": 11,
     "name": "Londyn"
   },
   {
-    "id": 4,
+    "id": 12,
     "name": "Malta"
   },
   {
-    "id": 5,
+    "id": 2,
     "name": "Warszawa"
   },
   {
-    "id": 6,
+    "id": 13,
     "name": "Milan"
   },
   {
-    "id": 7,
+    "id": 14,
     "name": "Tokio"
   },
   {
-    "id": 8,
+    "id": 3,
     "name": "Wrocław"
   },
   {
-    "id": 9,
+    "id": 15,
     "name": "Los Angeles"
   }
 ]
