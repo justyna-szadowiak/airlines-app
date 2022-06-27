@@ -1,1 +1,37 @@
-<p>search-flight works!</p>
+<div class="container">
+  <form (ngSubmit)="submitForm()" [formGroup]="flightForm" class="form">
+    <div class="full-width form-group">
+      <mat-form-field appearance="fill">
+        <mat-label color="basic">Choose your departure city:</mat-label>
+        <mat-select formControlName="departureAirport" (selectionChange)="onDepartureSelect($event)" *ngIf="(departureAirports$ | async) as departureAirports" required>
+          <mat-option *ngFor="let departureAirport of departureAirports" value="option">{{departureAirport.airport}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label color="basic">Choose your destination city:</mat-label>
+        <mat-select formControlName="destinationAirport" *ngIf="(destinationAirports$ | async) as destinationAirports" required>
+          <mat-option *ngFor="let destinationAirport of destinationAirports" value="option">{{destinationAirport.airport}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Pick a leave date:</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Adults:</mat-label>
+        <input matInput type="number" [min]="1" formControlName="adultsPassagers">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Children:</mat-label>
+        <input matInput type="number" [min]="0" formControlName="childrenPassagers">
+      </mat-form-field>
+      <div>
+        <button mat-button color="primary" type="submit" class="submit">Search</button>
+      </div>
+    </div>
+  </form>
+
+</div>
+

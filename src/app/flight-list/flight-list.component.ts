@@ -29,7 +29,7 @@ export class FlightListComponent implements OnChanges {
   }
 
   filterList() {
-    this.filteredFlights = this.flights?.filter(flight => flight.departureCity === this.filter?.departureCity);
+    this.filteredFlights = this.flights?.filter(flight => flight.departureAirportId === this.filter?.departureAirportId);
 
   }
 }

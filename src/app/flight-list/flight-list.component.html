@@ -1,7 +1,7 @@
 <mat-list *ngIf="filteredFlights?.length else emptyList">
   <mat-list-item *ngFor="let flight of filteredFlights">
-    <div mat-line>From: {{getCityName(flight.departureCity)}}</div>
-    <div mat-line>To: {{getCityName(flight.destionationCity)}}</div>
+    <div mat-line>From: {{getCityName(flight.departureAirportId)}}</div>
+    <div mat-line>To: {{getCityName(flight.destinationAirportId)}}</div>
     <mat-divider></mat-divider>
   </mat-list-item>
 </mat-list>
