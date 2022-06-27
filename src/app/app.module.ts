@@ -6,10 +6,8 @@ import { CommonModule } from "@angular/common";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MenuComponent } from './menu/menu.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LogInComponent } from './log-in/log-in.component';
-import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -53,10 +51,8 @@ import { SearchFlightComponent } from './search-flight/search-flight.component';
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent,
     NotFoundComponent,
     LogInComponent,
-    FooterComponent,
     MainComponent,
     FlightListComponent,
     FlightDetailsComponent,

@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges } from '@angular/core';
-import { City, Filter, Flight } from '../interfaces';
+import { City, Filter, Journey } from '../interfaces';
 
 @Component({
   selector: 'app-flight-list',
@@ -8,7 +8,7 @@ import { City, Filter, Flight } from '../interfaces';
 })
 export class FlightListComponent implements OnChanges {
   @Input()
-  flights: Flight[] | null = [];
+  journey: Journey[] | null = [];
 
   @Input()
   cities: City[] | null = [];
@@ -16,7 +16,7 @@ export class FlightListComponent implements OnChanges {
   @Input()
   filter?: Filter;
 
-  filteredFlights: Flight[] | undefined;
+  filteredJourney: Journey[] | undefined;
 
   constructor() { }
 
@@ -29,7 +29,7 @@ export class FlightListComponent implements OnChanges {
   }
 
   filterList() {
-    this.filteredFlights = this.flights?.filter(flight => flight.departureAirportId === this.filter?.departureAirportId);
+    this.filteredJourney = this.journey?.filter(journey => journey.departureAirportId === this.filter?.departureAirportId);
 
   }
 }
