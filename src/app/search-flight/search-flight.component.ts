@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { DateFilterFn } from '@angular/material/datepicker';
 import { Router } from '@angular/router';
 import { Observable, of, pluck, tap } from 'rxjs';
-import { Airport, Filter, Journey, FormFilter } from '../interfaces';
+import { Airport, Journey, SearchForm, Flight } from '../interfaces';
 import { ApiService } from '../services/api.service';
 
 @Component({
@@ -12,11 +12,11 @@ import { ApiService } from '../services/api.service';
   styleUrls: ['./search-flight.component.scss']
 })
 export class SearchFlightComponent implements OnInit {
-  public journies$: Observable<Journey[]> | undefined;
+  public flights$: Observable<Flight[]> = of([]);
+  public journies$: Observable<Journey[] | number[]> = of([]);
   public departureAirports$: Observable<Airport[]> | undefined;
   public destinationAirports$: Observable<Airport[]> = of([]);
   public possibleDates$: Observable<number[]> = of([]);
-  public filter: Filter | undefined;
   public showList: boolean = false;
   public isFormFilled: boolean = false;
   public journeyId: number | undefined;
@@ -45,12 +45,11 @@ export class SearchFlightComponent implements OnInit {
   async submitForm() {
     if (this.flightForm.valid && this.isFormFilled) {
       this.showList = true;
-      const formValues: FormFilter = this.flightForm.getRawValue();
-      const {departureAirportId, destinationAirportId, date} = formValues;
-      this.filter = {departureAirportId, destinationAirportId, date}
+      const searchFormValues: SearchForm = this.flightForm.getRawValue();
+      const {departureAirportId, destinationAirportId, date} = searchFormValues;
+      const flight = this.flightForm.value;
       console.log(this.flightForm.value);
-      console.log(this.journeyId);
-      this.router.navigate(['/app/flight'])
+      this.router.navigate([`/app/flight/${this.journeyId}`])
     }
   }
 
