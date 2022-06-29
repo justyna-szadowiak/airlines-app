@@ -4,55 +4,80 @@
     "departureAirportId": 1,
     "destinationAirportId": 10,
     "possibleDates": [
-      1656453600000
+      1656453600000,
+      1657058400000
     ]
   },
   {
     "id": 2,
     "departureAirportId": 1,
     "destinationAirportId": 11,
-    "possibleDates": []
+    "possibleDates": [
+      1657144800000,
+      1658872800000
+    ]
   },
   {
     "id": 3,
     "departureAirportId": 1,
     "destinationAirportId": 12,
-    "possibleDates": []
+    "possibleDates": [
+      1658268000000,
+      1660946400000
+    ]
   },
   {
     "id": 4,
     "departureAirportId": 2,
     "destinationAirportId": 13,
-    "possibleDates": []
+    "possibleDates": [
+      1663624800000,
+      1657836000000
+    ]
   },
   {
     "id": 5,
     "departureAirportId": 2,
     "destinationAirportId": 14,
-    "possibleDates": []
+    "possibleDates": [
+      1658095200000,
+      1658786400000
+    ]
   },
   {
     "id": 6,
     "departureAirportId": 2,
     "destinationAirportId": 10,
-    "possibleDates": []
+    "possibleDates": [
+      1659564000000,
+      1660600800000
+    ]
   },
   {
     "id": 7,
     "departureAirportId": 3,
     "destinationAirportId": 15,
-    "possibleDates": []
+    "possibleDates": [
+      1659218400000,
+      1661896800000
+    ]
   },
   {
     "id": 8,
     "departureAirportId": 3,
     "destinationAirportId": 11,
-    "possibleDates": []
+    "possibleDates": [
+      1659045600000,
+      1657490400000
+    ]
   },
   {
     "id": 9,
     "departureAirportId": 3,
     "destinationAirportId": 14,
-    "possibleDates": []
+    "possibleDates": [
+      1662847200000,
+      1662069600000
+    ]
   }
 ]

@@ -42,7 +42,6 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AuthService } from './services/auth.service';
 import { MainComponent } from './main/main.component';
-import { FlightListComponent } from './flight-list/flight-list.component';
 import { FlightDetailsComponent } from './flight-details/flight-details.component';
 import { SummaryComponent } from './summary/summary.component';
 import { FlightComponent } from './flight/flight.component';
@@ -54,7 +53,6 @@ import { SearchFlightComponent } from './search-flight/search-flight.component';
     NotFoundComponent,
     LogInComponent,
     MainComponent,
-    FlightListComponent,
     FlightDetailsComponent,
     SummaryComponent,
     FlightComponent,

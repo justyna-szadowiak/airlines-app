@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.prod';
 import { Observable, of } from 'rxjs';
-import { Journey, City, Airport } from '../interfaces';
+import { Journey, City, Airport, Flight } from '../interfaces';
 import cities from '../data/cities.json';
 import journies from '../data/journies.json';
 import airports from '../data/airports.json';
+import flights from '../data/flights.json'
 import departureAirports from '../data/departureAirports.json';
-import destinationAirports from '../data/destinationAirports.json';
-import possibleDates from '../data/possibleDates.json'
 
 @Injectable({
   providedIn: 'root'
@@ -43,5 +42,11 @@ export class ApiService {
       journey.departureAirportId === departureAirportId
       && journey.destinationAirportId === destinationAirportId
     ) as Journey)
+  }
+
+  getFlight(journeyId: number, date: number): Observable<Flight> {
+    return of(flights.find(flight =>
+      flight.journeyId === journeyId
+      && flight.date) as Flight)
   }
 }

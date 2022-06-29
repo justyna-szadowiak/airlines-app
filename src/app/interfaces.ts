@@ -26,16 +26,14 @@ export interface Journey {
 export interface Flight {
   id: number;
   journeyId: number;
+  date?: number;
   price: number;
 }
 
-export interface Filter {
+export interface SearchForm {
   departureAirportId: number;
   destinationAirportId: number;
   date: number;
-}
-
-export interface FormFilter extends Filter {
   adultsPassagers: number;
   childrenPassagers: number;
 }

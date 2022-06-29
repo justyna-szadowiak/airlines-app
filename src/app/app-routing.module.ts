@@ -10,7 +10,7 @@ const routes: Routes = [
     {path: 'app', component: MainComponent, children: [
       {path: '', redirectTo: 'search', pathMatch: 'full'},
       {path: 'search', component: SearchFlightComponent},
-      {path: 'flight', component: FlightComponent}
+      {path: 'flight/:id', component: FlightComponent}
     ]},
   {path: 'login', component: LogInComponent},
   {
