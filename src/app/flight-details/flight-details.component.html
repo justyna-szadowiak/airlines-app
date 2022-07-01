@@ -1,18 +1,37 @@
-<mat-list>
-  <mat-list-item *ngIf="flight">
-    <div mat-line>From: {{departure?.airport}} </div>
-    <div mat-line>To: {{destination?.airport}} </div>
-    <div mat-line>Flight date: {{flight.date | date}} </div>
-    <div mat-line>Number of adult passagers: {{passangersCount?.adult}} </div>
-    <div mat-line>Number of children passagers: {{passangersCount?.child}}</div>
-    <section class="section">
-      <label class="margin">Choose baggage:</label>
-      <mat-radio-group [(ngModel)]="typesOfBaggage">
-        <mat-radio-button class="margin" value="carry-on">Carry-on luggage</mat-radio-button>
-        <mat-radio-button class="margin" value="checked">Checked luggage</mat-radio-button>
-      </mat-radio-group>
-    </section>
-  </mat-list-item>
-</mat-list>
-<mat-divider></mat-divider>
-<app-seats></app-seats>
+<mat-card class="card">
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngIf="flight">
+        <div mat-line>From: {{departure?.airport}} </div>
+        <div mat-line>To: {{destination?.airport}} </div>
+        <div mat-line>Flight date: {{flight.date | date}} </div>
+        <div mat-line>Number of adult passagers: {{passangersCount?.adults}} </div>
+        <div mat-line *ngIf="passangersCount?.children">Number of children passagers: {{passangersCount?.children}}</div>
+        <div mat-line>price: {{flight.price | currency: 'PLN'}}</div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <div mat-line>
+          <label>Choose baggage:</label>
+        </div>
+        <div mat-line>
+          <mat-radio-group [(ngModel)]="typesOfBaggage">
+            <mat-radio-button class="margin" value="carry-on">Carry-on luggage</mat-radio-button><br>
+            <mat-radio-button class="margin" value="checked">Checked luggage</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <div mat-line>Choose your seats:</div>
+        <div mat-line>
+          <span *ngFor="let seat of seats"><b>{{seat}} </b></span>
+        </div>
+      </mat-list-item>
+    </mat-list>
+    <app-seats [count]="passangersCount?.adults + passangersCount?.children" (seatsChange)="onSeatsChange($event)"></app-seats>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button color="primary" (click)="submit()">Submit</button>
+  </mat-card-actions>
+</mat-card>

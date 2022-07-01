@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Seat } from '../interfaces';
 
 @Component({
@@ -7,13 +7,19 @@ import { Seat } from '../interfaces';
   styleUrls: ['./seats.component.scss']
 })
 export class SeatsComponent implements OnInit {
-  @Output() confirm = new EventEmitter();
+  @Input() set count(value: number) {
+    this._count = value
+  }
+  @Output() seatsChange: EventEmitter<string[]> = new EventEmitter();
+
+  private _count: number | undefined;
 
   seats: Seat = {
   	totalRows: 31,
 	  seatsPerRow: 6,
 	  seatNaming:'rowType',
-	  booked:['1A', '1B', '1F','5C','5D', '5E', '5F','21A', '11B', '18F','15C','15D', '25E', '16F']
+	  taken:['1A', '1B', '1F','5C','5D', '5E', '5F','21A', '11B', '18F','15C','15D', '25E', '16F'],
+    booked: []
   };
   rows = new Array();
 
@@ -39,18 +45,21 @@ export class SeatsComponent implements OnInit {
     this.rows = rows;
   }
 
-  done(){
-    this.confirm.emit(this.seats.booked)
-  }
-
   bookAction(placeToSeat: string){
-    if(this.seats.booked.indexOf(placeToSeat)>0){
-      this.seats.booked = this.seats.booked.filter(bookedSeat => {
-        return bookedSeat!=placeToSeat;
-      })
+    const bookedSeatIndex: number = this.seats.booked.indexOf(placeToSeat);
+    const takenSeatIndex: number = this.seats.taken.indexOf(placeToSeat);
+
+    if(this._count === undefined || takenSeatIndex !== -1) {
+      return;
+    } else if(bookedSeatIndex !== -1) {
+      this.seats.booked.splice(bookedSeatIndex, 1);
+      this._count++;
+      this.seatsChange.emit(this.seats.booked);
     }
-    else{
-      this.seats.booked.push(placeToSeat)
+    else if (this._count !== 0) {
+      this.seats.booked.push(placeToSeat);
+      this._count--;
+      this.seatsChange.emit(this.seats.booked);
     }
   }
 }

@@ -1,26 +1,20 @@
-<mat-card class="card">
-  <mat-card-content>
-    <mat-subtitle>Choose your seats</mat-subtitle>
-    <form>
-      <div class="plane">
-        <ol class="cabin fuselage">
-          <li *ngFor="let seat of rows" class="row row--1">
-            <ol class="seats" type="A">
-              <li *ngFor="let placeToSeat of seat" class="seat">
-                <input
-                  (click)="bookAction(placeToSeat)"
-                  type="checkbox"
-                  [checked]="seats.booked.includes(placeToSeat)"
-                  [id]="placeToSeat" />
-                  <label [for]="placeToSeat">
-                    {{placeToSeat}}
-                  </label>
-              </li>
-            </ol>
+<form>
+  <div class="plane">
+    <ol class="cabin">
+      <li *ngFor="let seat of rows" class="row row--1">
+        <ol class="seats" type="A">
+          <li *ngFor="let placeToSeat of seat" class="seat">
+            <input
+              (click)="bookAction(placeToSeat)"
+              type="checkbox"
+              [ngClass]="{'taken' : seats.taken.includes(placeToSeat), 'booked' : seats.booked.includes(placeToSeat)}"
+              [id]="placeToSeat" />
+              <label [for]="placeToSeat">
+                {{placeToSeat}}
+              </label>
           </li>
         </ol>
-      </div>
-    </form>
-    <button (click)="done()">Done</button>
-  </mat-card-content>
-</mat-card>
+      </li>
+    </ol>
+  </div>
+</form>

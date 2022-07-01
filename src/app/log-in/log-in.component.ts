@@ -1,46 +1,37 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
-import { AuthService } from '../services/auth.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-
-interface ToSignIn {
-  provideEmail: string,
-  providePassword: string
-}
+import { User } from '../interfaces';
+import { ApiService } from '../services/api.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
   styleUrls: ['./log-in.component.scss']
 })
-export class LogInComponent implements OnInit {
-  public logInForm!: FormGroup;
+export class LogInComponent {
+  public logInForm: FormGroup = new FormGroup({
+    email: new FormControl(),
+    password: new FormControl(),
+  })
+  public errorMessage: string | undefined;
 
-  constructor(private formBuilder: FormBuilder,
-              private authService: AuthService) {
+  constructor(private apiService: ApiService, public dialogRef: MatDialogRef<LogInComponent>) {
+
   }
 
-  public ngOnInit(): void {
-    this.buildForm();
-  }
-
-  // public logIn(formData: any): void {
-  //   this.authService.SignIn(provideEmail, providePassword)
-  //     .then(
-  //       (error) => console.error(error)
-  //     )
-  // }
-
-  private buildForm(): void {
-    this.logInForm = this.formBuilder.group({
-      'email': ['', [
-        Validators.required
-      ]
-      ],
-      'password': ['', [
-        Validators.required
-      ]
-      ],
-    });
+  logIn(user: User) {
+    const email = user.email;
+    const password = user.password;
+    if (email && password) {
+      this.apiService.checkLogIn(email, password).subscribe(result => {
+        if(result) {
+          this.dialogRef.close()
+        } else {
+          this.errorMessage = 'Wrong email or password'
+        }
+      })
+    }
   }
 }
 

@@ -47,10 +47,22 @@ export interface Seat {
   totalRows: number;
   seatsPerRow: number;
   seatNaming: string;
+  taken: string[]
   booked: string[]
 }
 
 export interface PassangersCount {
-  adult: number;
-  child: number;
+  adults: number;
+  children: number;
+}
+
+export interface Ticket {
+  from?: string
+  to?: string
+  flightDate?: number;
+  adults?: number;
+  children?: number;
+  typesOfBaggage?: string;
+  seats?: string[];
+  price?: number;
 }

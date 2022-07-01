@@ -1,11 +1,16 @@
 <mat-list>
-  <mat-list-item *ngIf="flight">
-    <div mat-line>From: {{departure?.airport}} </div>
-    <div mat-line>To: {{destination?.airport}} </div>
-    <div mat-line>Flight date: {{flight.date | date}} </div>
-    <div mat-line>Number of adult passagers: {{passangersCount?.adult}} </div>
-    <div mat-line>Number of children passagers: {{passangersCount?.child}}</div>
+  <mat-list-item *ngIf="ticket">
+    <div mat-line>From: {{ticket.from}} </div>
+    <div mat-line>To: {{ticket.to}} </div>
+    <div mat-line>Flight date: {{ticket.flightDate| date}} </div>
+    <div mat-line>Number of adult passagers: {{ticket.adults}} </div>
+    <div mat-line *ngIf="ticket.children">Number of children passagers: {{ticket.children}}</div>
+    <div mat-line>Baggage: {{ticket.typesOfBaggage}}</div>
     <div mat-line>Choosen seats: </div>
+    <div mat-line>
+      <span *ngFor="let seat of ticket.seats"><b>{{seat}} </b></span>
+    </div>
+    <div mat-line>price: {{ticket.price | currency: 'PLN'}}</div>
   </mat-list-item>
 </mat-list>
 

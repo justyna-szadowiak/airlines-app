@@ -6,12 +6,6 @@
 
 .plane {
   margin: 20px auto;
-  max-width: 300px;
-}
-
-.fuselage {
-  border-right: 5px solid #d8d8d8;
-  border-left: 5px solid #d8d8d8;
 }
 
 ol {
@@ -42,9 +36,19 @@ ol {
     opacity: 0;
   }
 
-  input[type=checkbox]:checked {
+  input.taken {
     +label {
-      background: #bada55;
+      background: #c2a7aa;
+      -webkit-animation-name: rubberBand;
+      animation-name: rubberBand;
+      animation-duration: 300ms;
+      animation-fill-mode: both;
+    }
+  }
+
+  input.booked {
+    +label {
+      background: #257ff4;
       -webkit-animation-name: rubberBand;
       animation-name: rubberBand;
       animation-duration: 300ms;
@@ -84,7 +88,7 @@ label {
   font-weight: bold;
   line-height: 1.5rem;
   padding: 4px 0;
-  background: #F42536;
+  background: #a1b950;
   border-radius: 5px;
   animation-duration: 300ms;
   animation-fill-mode: both;

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { QuerySnapshot } from '@angular/fire/firestore';
 import { ActivatedRoute, Params } from '@angular/router';
 import { audit, lastValueFrom, Observable, switchMap } from 'rxjs';
-import { Airport, Flight, Journey, PassangersCount } from '../interfaces';
+import { Airport, Flight, Journey, PassangersCount, Ticket } from '../interfaces';
 import { ApiService } from '../services/api.service';
 
 @Component({
@@ -17,23 +17,24 @@ export class FlightComponent implements OnInit {
   public departure$: Observable<Airport> | any;
   public destination$: Observable<Airport> | any;
   public passangersCount: PassangersCount | any;
-  public price$: Observable<Flight> | any;
+  public stepIndex = 0;
+  public firstStepCompleted = false;
+  public ticket: Ticket | undefined;
 
   constructor(private apiService: ApiService,
     public route: ActivatedRoute) {
       route.params.subscribe((params: Params) => {
         this.id = parseInt(params['id']);
       })
-      route.queryParams.subscribe((params) => {
+      route.queryParams.subscribe((params: Params) => {
         this.passangersCount = {
-          adult: parseInt(params['adult']),
-          child: parseInt(params['child'])
+          adults: parseInt(params['adults']),
+          children: parseInt(params['children'])
         }
       })
     }
 
   ngOnInit(): void {
-
     this.flight$ = this.apiService
         .getFlight(this.id);
 
@@ -48,9 +49,11 @@ export class FlightComponent implements OnInit {
     this.destination$ = this.journey$
       .pipe(switchMap((journey: Journey) => this.apiService
       .getAirport(journey.destinationAirportId)))
+  }
 
-    this.price$ = this.flight$
-      .pipe(switchMap((flight: Flight) => this.apiService
-      .getPrice(flight.price)))
+  onTicketSubmit(ticket: Ticket) {
+    this.ticket = ticket
+    this.firstStepCompleted = true;
+    this.stepIndex = 1;
   }
 }

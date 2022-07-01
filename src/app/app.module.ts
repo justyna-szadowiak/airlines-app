@@ -30,18 +30,6 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCardModule} from '@angular/material/card';
 
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { environment } from '../environments/environment';
-import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
-import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideDatabase,getDatabase } from '@angular/fire/database';
-import { provideFunctions,getFunctions } from '@angular/fire/functions';
-import { provideMessaging,getMessaging } from '@angular/fire/messaging';
-import { providePerformance,getPerformance } from '@angular/fire/performance';
-import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config';
-import { provideStorage,getStorage } from '@angular/fire/storage';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { AuthService } from './services/auth.service';
 import { MainComponent } from './main/main.component';
 import { FlightDetailsComponent } from './flight-details/flight-details.component';
 import { SummaryComponent } from './summary/summary.component';
@@ -65,16 +53,6 @@ import { SeatsComponent } from './seats/seats.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAnalytics(() => getAnalytics()),
-    provideAuth(() => getAuth()),
-    provideDatabase(() => getDatabase()),
-    provideFirestore(() => getFirestore()),
-    provideFunctions(() => getFunctions()),
-    provideMessaging(() => getMessaging()),
-    providePerformance(() => getPerformance()),
-    provideRemoteConfig(() => getRemoteConfig()),
-    provideStorage(() => getStorage()),
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
@@ -98,9 +76,7 @@ import { SeatsComponent } from './seats/seats.component';
     ReactiveFormsModule,
     CommonModule
   ],
-  providers: [
-    ScreenTrackingService, UserTrackingService, AuthService
-  ],
+  providers: [ ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

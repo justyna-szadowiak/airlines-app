@@ -1,6 +1,6 @@
 <div>
-  <mat-stepper orientation="vertical">
-    <mat-step>
+  <mat-stepper orientation="vertical" [selectedIndex]="stepIndex" [linear]="true">
+    <mat-step [completed]="firstStepCompleted">
       <ng-template matStepLabel>Flight details:</ng-template>
         <app-flight-details
           [flight]="flight$ | async"
@@ -8,12 +8,12 @@
           [departure]="departure$ | async"
           [destination]="destination$ | async"
           [passangersCount]="passangersCount"
-          [price]="price$ | async">
+          (ticketSubmit)="onTicketSubmit($event)">
         </app-flight-details>
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>Flight summary:</ng-template>
-      <app-summary></app-summary>
+      <app-summary [ticket]="ticket"></app-summary>
     </mat-step>
   </mat-stepper>
 </div>

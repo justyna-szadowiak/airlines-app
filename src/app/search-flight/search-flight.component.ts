@@ -50,9 +50,9 @@ export class SearchFlightComponent implements OnInit {
       const formValue: SearchForm = this.flightForm.value;
       const flight: Flight = await lastValueFrom(
         this.apiService.getFlightByJourney(this.journeyId, date));
-      const adult: number = this.flightForm.get('adultsPassagers')?.value;
-      const child: number = this.flightForm.get('childrenPassagers')?.value;
-      this.router.navigate([`/app/flight/${flight.id}`], {queryParams: { adult, child}})
+      const adults: number = this.flightForm.get('adultsPassagers')?.value;
+      const children: number = this.flightForm.get('childrenPassagers')?.value;
+      this.router.navigate([`/app/flight/${flight.id}`], {queryParams: { adults, children}})
     }
   }
 
