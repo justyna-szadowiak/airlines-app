@@ -2,7 +2,14 @@
   <mat-stepper orientation="vertical">
     <mat-step>
       <ng-template matStepLabel>Flight details:</ng-template>
-        <app-flight-details></app-flight-details>
+        <app-flight-details
+          [flight]="flight$ | async"
+          [journey]="journey$ | async"
+          [departure]="departure$ | async"
+          [destination]="destination$ | async"
+          [passangersCount]="passangersCount"
+          [price]="price$ | async">
+        </app-flight-details>
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>Flight summary:</ng-template>
@@ -10,3 +17,4 @@
     </mat-step>
   </mat-stepper>
 </div>
+

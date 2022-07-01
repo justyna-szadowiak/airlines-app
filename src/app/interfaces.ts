@@ -47,4 +47,10 @@ export interface Seat {
   totalRows: number;
   seatsPerRow: number;
   seatNaming: string;
+  booked: string[]
+}
+
+export interface PassangersCount {
+  adult: number;
+  child: number;
 }

@@ -1,9 +1,10 @@
 <mat-list>
-  <mat-list-item >
-    <div mat-line>From: </div>
-    <div mat-line>To: </div>
-    <div mat-line>Flight date:</div>
-    <div mat-line>Number of passagers:</div>
+  <mat-list-item *ngIf="flight">
+    <div mat-line>From: {{departure?.airport}} </div>
+    <div mat-line>To: {{destination?.airport}} </div>
+    <div mat-line>Flight date: {{flight.date | date}} </div>
+    <div mat-line>Number of adult passagers: {{passangersCount?.adult}} </div>
+    <div mat-line>Number of children passagers: {{passangersCount?.child}}</div>
     <section class="section">
       <label class="margin">Choose baggage:</label>
       <mat-radio-group [(ngModel)]="typesOfBaggage">
@@ -14,10 +15,4 @@
   </mat-list-item>
 </mat-list>
 <mat-divider></mat-divider>
-<mat-card>
-  <mat-card-content>
-    <mat-subtitle>Choose your seats</mat-subtitle>
-    <mat-checkbox [seatsLayout]="seats"></mat-checkbox>
-  </mat-card-content>
-</mat-card>
-
+<app-seats></app-seats>

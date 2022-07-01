@@ -28,6 +28,7 @@ import { MatLineModule } from '@angular/material/core';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatCardModule} from '@angular/material/card';
 
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
@@ -46,6 +47,7 @@ import { FlightDetailsComponent } from './flight-details/flight-details.componen
 import { SummaryComponent } from './summary/summary.component';
 import { FlightComponent } from './flight/flight.component';
 import { SearchFlightComponent } from './search-flight/search-flight.component';
+import { SeatsComponent } from './seats/seats.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,8 @@ import { SearchFlightComponent } from './search-flight/search-flight.component';
     FlightDetailsComponent,
     SummaryComponent,
     FlightComponent,
-    SearchFlightComponent
+    SearchFlightComponent,
+    SeatsComponent
   ],
   imports: [
     BrowserModule,
@@ -90,6 +93,7 @@ import { SearchFlightComponent } from './search-flight/search-flight.component';
     MatStepperModule,
     MatCheckboxModule,
     MatRadioModule,
+    MatCardModule,
     FormsModule,
     ReactiveFormsModule,
     CommonModule

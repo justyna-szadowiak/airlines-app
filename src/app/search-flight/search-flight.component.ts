@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { DateFilterFn } from '@angular/material/datepicker';
 import { Router } from '@angular/router';
-import { Observable, of, pluck, tap } from 'rxjs';
+import { lastValueFrom, Observable, of, pluck, tap } from 'rxjs';
 import { Airport, Journey, SearchForm, Flight } from '../interfaces';
 import { ApiService } from '../services/api.service';
 
@@ -19,7 +19,7 @@ export class SearchFlightComponent implements OnInit {
   public possibleDates$: Observable<number[]> = of([]);
   public showList: boolean = false;
   public isFormFilled: boolean = false;
-  public journeyId: number | undefined;
+  public journeyId: number | any;
 
   public flightForm = new FormGroup({
     departureAirport: new FormControl(),
@@ -47,9 +47,12 @@ export class SearchFlightComponent implements OnInit {
       this.showList = true;
       const searchFormValues: SearchForm = this.flightForm.getRawValue();
       const {departureAirportId, destinationAirportId, date} = searchFormValues;
-      const flight = this.flightForm.value;
-      console.log(this.flightForm.value);
-      this.router.navigate([`/app/flight/${this.journeyId}`])
+      const formValue: SearchForm = this.flightForm.value;
+      const flight: Flight = await lastValueFrom(
+        this.apiService.getFlightByJourney(this.journeyId, date));
+      const adult: number = this.flightForm.get('adultsPassagers')?.value;
+      const child: number = this.flightForm.get('childrenPassagers')?.value;
+      this.router.navigate([`/app/flight/${flight.id}`], {queryParams: { adult, child}})
     }
   }
 
@@ -63,7 +66,7 @@ export class SearchFlightComponent implements OnInit {
     const departureAirportId = this.flightForm.get('departureAirport')?.value;
     const destinationAirportId = this.flightForm.get('destinationAirport')?.value;
     this.possibleDates$ = this.apiService
-      .getJourney(departureAirportId, destinationAirportId)
+      .getJourneyByAirports(departureAirportId, destinationAirportId)
       .pipe(
         tap(journey => this.journeyId = journey.id),
         pluck('possibleDates')

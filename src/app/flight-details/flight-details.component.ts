@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Filter } from '../interfaces';
+import { Router } from '@angular/router';
+import { Airport, Flight, Journey, PassangersCount } from '../interfaces';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-flight-details',
@@ -7,24 +9,19 @@ import { Filter } from '../interfaces';
   styleUrls: ['./flight-details.component.scss']
 })
 export class FlightDetailsComponent implements OnInit {
-  @Input()
-  filter?: Filter | undefined;
+  @Input() flight: Flight | undefined | null;
+  @Input() journey: Journey | undefined | null;
+  @Input() departure: Airport | undefined | null;
+  @Input() destination: Airport | undefined | null;
+  @Input() passangersCount: PassangersCount | undefined | null;
 
   typesOfBaggage: 'carry-on' | 'checked' = 'carry-on';
-  seats = {
-  	totalRows: 31,
-	  seatsPerRow: 6,
-	  seatNaming:'rowType',
-	  // booked:['1A','5D']
-  };
 
-  getSelected(event: number){
-    console.log(event)
-  }
-
-  constructor() { }
+  constructor(private apiService: ApiService,
+    private router: Router) { }
 
   ngOnInit(): void {
+
   }
 
 }

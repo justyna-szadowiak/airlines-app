@@ -1,1 +1,11 @@
-<p>summary works!</p>
+<mat-list>
+  <mat-list-item *ngIf="flight">
+    <div mat-line>From: {{departure?.airport}} </div>
+    <div mat-line>To: {{destination?.airport}} </div>
+    <div mat-line>Flight date: {{flight.date | date}} </div>
+    <div mat-line>Number of adult passagers: {{passangersCount?.adult}} </div>
+    <div mat-line>Number of children passagers: {{passangersCount?.child}}</div>
+    <div mat-line>Choosen seats: </div>
+  </mat-list-item>
+</mat-list>
+
