@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.prod';
 import { Observable, of, ReplaySubject } from 'rxjs';
-import { Journey, City, Airport, Flight, SearchForm } from '../interfaces';
+import { Journey, Airport, Flight, SearchForm } from '../interfaces';
 import journies from '../data/journies.json';
 import airports from '../data/airports.json';
 import flights from '../data/flights.json';
