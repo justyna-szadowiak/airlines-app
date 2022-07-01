@@ -6,16 +6,6 @@ export interface User {
     password: string;
 }
 
-export interface AuthUser {
-  uid: string;
-  email: string;
-}
-
-export interface City {
-  id: number;
-  name: string;
-}
-
 export interface Journey {
   id: number;
   departureAirportId: number;
